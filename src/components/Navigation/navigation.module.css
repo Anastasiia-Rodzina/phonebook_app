@@ -1,0 +1,7 @@
+.navigation {
+  display: flex;
+  padding: 15px;
+  background-color: azure;
+  justify-content: space-between;
+  align-items: center;
+}
