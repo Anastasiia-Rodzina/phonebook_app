@@ -8,7 +8,6 @@ export const register = createAsyncThunk(
       const response = await api.register(body);
       return response;
     } catch (error) {
-      // console.log(error);
       return rejectWithValue(error.message);
     }
   }
@@ -31,10 +30,10 @@ export const current = createAsyncThunk(
   async (_, { rejectWithValue, getState }) => {
     try {
       const { auth } = getState();
-      const data = await api.getCurrent(auth.token);
-      return data;
-    } catch (error) {
-      return rejectWithValue(error.message);
+      const response = await api.getCurrent(auth.token);
+      return response;
+    } catch ({ response }) {
+      return rejectWithValue(response.data);
     }
   },
   {
